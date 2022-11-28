@@ -1,3 +1,4 @@
+import 'package:bibliotheca/models/database/dao.dart';
 import 'package:bibliotheca/views/liste_auteur.dart';
 import 'package:bibliotheca/views/liste_categorie.dart';
 import 'package:bibliotheca/views/liste_livre.dart';

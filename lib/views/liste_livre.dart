@@ -33,6 +33,10 @@ class _ListeLivrePageState extends State<ListeLivrePage> {
                     title: Text(livre.libelle!),
                     subtitle: Text(livre.description!),
                     onTap: () => ouvrirEdition(livre: livre),
+                    trailing: IconButton(
+                      onPressed: () => onDelete(livre),
+                      icon: const Icon(Icons.delete),
+                    ),
                   );
                 },
               );
@@ -48,6 +52,11 @@ class _ListeLivrePageState extends State<ListeLivrePage> {
         ),
       ),
     );
+    setState(() {});
+  }
+
+  Future<void> onDelete(Livre livre) async {
+    await Dao.deleteLivre(livre.id!);
     setState(() {});
   }
 }

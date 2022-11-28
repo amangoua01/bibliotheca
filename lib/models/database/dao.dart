@@ -49,6 +49,8 @@ class Dao {
       CREATE TABLE livre (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         libelle VARCHAR(255) NOT NULL,
+        image VARCHAR,
+        nb_page INTEGER,
         description TEXT,
         auteur_id INTEGER NOT NULL,
         categorie_id INTEGER NOT NULL
@@ -176,7 +178,7 @@ class Dao {
   static Future<int> updateLivre(Livre livre) async {
     final db = await database;
     return db.update(
-      "auteur",
+      "livre",
       livre.toJson()..remove("id"),
       where: 'id = ?',
       whereArgs: [livre.id],
@@ -185,7 +187,7 @@ class Dao {
 
   static Future<Livre> createLivre(Livre livre) async {
     final db = await database;
-    final id = await db.insert("auteur", livre.toJson());
+    final id = await db.insert("livre", livre.toJson());
     livre.id = id;
     return livre;
   }

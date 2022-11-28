@@ -2,17 +2,17 @@ class Livre {
   int? id;
   String? libelle;
   String? description;
-  int? nbPage;
   String? image;
   int? categorieId;
+  int? nbPage;
   int? auteurId;
 
   Livre(
       {this.id,
       this.libelle,
       this.description,
-      this.nbPage,
       this.image,
+      this.nbPage,
       this.auteurId,
       this.categorieId});
 
@@ -20,20 +20,20 @@ class Livre {
     id = json["id"];
     libelle = json["libelle"];
     description = json["description"];
-    nbPage = json["nbPage"];
     image = json["image"];
-    categorieId = json["categorieId"];
-    auteurId = json["auteurId"];
+    categorieId = json["categorie_id"];
+    auteurId = json["auteur_id"];
+    nbPage = json["nb_page"];
   }
 
   Map<String, dynamic> toJson() {
     Map<String, dynamic> map = {};
-    libelle = map["libelle"];
-    description = map["description"];
-    nbPage = map["nbPage"];
-    image = map["image"];
-    categorieId = map["categorieId"];
-    auteurId = map["auteurId"];
+    map["libelle"] = libelle;
+    map["description"] = description;
+    map["image"] = image;
+    map["categorie_id"] = categorieId;
+    map["auteur_id"] = auteurId;
+    map["nb_page"] = nbPage;
     return map;
   }
 }
